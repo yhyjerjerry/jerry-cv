@@ -1,0 +1,467 @@
+:root {
+    --bg: #0d1117;
+    --fg: #c9d1d9;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --cyan: #39c5cf;
+    --yellow: #d29922;
+    --red: #f85149;
+    --magenta: #bc8cff;
+    --dim: #6e7681;
+    --prompt-color: #3fb950;
+    --header-bg: #161b22;
+    --border: #30363d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #010409;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle color glow blobs */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 600px 400px at 15% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 85% 75%, rgba(139, 92, 246, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: glowShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowShift {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.7; transform: scale(0.98); }
+}
+
+/* Honeycomb overlay */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgba(255,255,255,0.09)' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='rgba(255,255,255,0.09)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#terminal {
+    width: 100%;
+    max-width: 860px;
+    background: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.6),
+        0 0 80px rgba(59, 130, 246, 0.04),
+        0 0 120px rgba(139, 92, 246, 0.03);
+    overflow: hidden;
+    min-height: 70vh;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+#terminal-header {
+    background: var(--header-bg);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-close { background: var(--red); }
+.btn-minimize { background: var(--yellow); }
+.btn-maximize { background: var(--green); }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    color: var(--dim);
+    font-size: 14px;
+}
+
+/* ── Sticky info banner ──────────────────────────────── */
+
+#info-banner {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.info-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.info-nick {
+    color: var(--cyan);
+    font-weight: 400;
+}
+
+.info-role {
+    color: var(--fg);
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.info-details {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--dim);
+    line-height: 1.8;
+}
+
+.info-details a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.info-details a:hover {
+    text-decoration: underline;
+}
+
+.info-sep {
+    margin: 0 6px;
+    color: var(--border);
+}
+
+/* ── Command buttons ─────────────────────────────────── */
+
+#cmd-buttons {
+    background: var(--bg);
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.cmd-btn {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 14px;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cmd-btn:hover {
+    background: var(--cyan);
+    color: var(--bg);
+    border-color: var(--cyan);
+}
+
+.cmd-btn:active {
+    transform: scale(0.95);
+}
+
+.cmd-btn.active {
+    background: var(--cyan);
+    color: var(--bg);
+    border-color: var(--cyan);
+}
+
+.cmd-btn-download {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.cmd-btn-download:hover {
+    background: var(--green);
+    color: var(--bg);
+    border-color: var(--green);
+}
+
+/* ── Terminal body ───────────────────────────────────── */
+
+#terminal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--fg);
+}
+
+#terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+#terminal-body::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+#terminal-body::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+#output .line {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Typing cursor */
+.typing-cursor::after {
+    content: '\2588';
+    color: var(--green);
+    animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.prompt {
+    color: var(--prompt-color);
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 14px;
+    flex: 1;
+    caret-color: var(--green);
+}
+
+/* Hide input line while animating */
+#input-line.hidden {
+    display: none;
+}
+
+/* ── Output styling ──────────────────────────────────── */
+
+.color-green { color: var(--green); }
+.color-blue { color: var(--blue); }
+.color-cyan { color: var(--cyan); }
+.color-yellow { color: var(--yellow); }
+.color-red { color: var(--red); }
+.color-magenta { color: var(--magenta); }
+.color-dim { color: var(--dim); }
+.color-fg { color: var(--fg); }
+.bold { font-weight: 700; }
+
+.neofetch-info {
+    line-height: 1.6;
+    min-width: 0;
+}
+
+.neofetch-separator {
+    color: var(--dim);
+}
+
+.section-header {
+    color: var(--cyan);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.timeline-item {
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+}
+
+.timeline-item .role {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.timeline-item .company {
+    color: var(--blue);
+}
+
+.timeline-item .date {
+    color: var(--dim);
+    font-size: 14px;
+}
+
+.timeline-item .detail {
+    color: var(--fg);
+    padding-left: 8px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    margin: 3px 4px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.project-category {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.project-item {
+    padding-left: 16px;
+    color: var(--fg);
+    margin-bottom: 2px;
+}
+
+.help-cmd {
+    color: var(--green);
+    display: inline-block;
+    min-width: 160px;
+}
+
+.help-desc {
+    color: var(--dim);
+}
+
+.typed-command {
+    color: var(--fg);
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ── Mobile ──────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    body { padding: 0; }
+
+    #terminal {
+        border-radius: 0;
+        border: none;
+        min-height: 100vh;
+        max-height: 100vh;
+    }
+
+    #info-banner {
+        padding: 12px 16px;
+    }
+
+    .info-name {
+        font-size: 16px;
+    }
+
+    .info-details {
+        font-size: 11px;
+    }
+
+    .info-sep {
+        display: none;
+    }
+
+    .info-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    #cmd-buttons {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .cmd-btn {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    #terminal-body {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    #command-input {
+        font-size: 16px;
+    }
+}
+
+/* ── Floating tech keywords ──────────────────────────── */
+
+.floating-word {
+    position: fixed;
+    z-index: 0;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 14px;
+    opacity: 0.2;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    animation: floatFade var(--duration, 6s) ease-in-out forwards;
+}
+
+@keyframes floatFade {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.8);
+    }
+    15% {
+        opacity: 0.35;
+    }
+    75% {
+        opacity: 0.35;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx, 20px), var(--dy, -20px)) scale(1);
+    }
+}

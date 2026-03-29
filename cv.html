@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong Yin Yu (Jerry) - DevOps Engineer CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #2d3748;
+            line-height: 1.35;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 32px 32px 20px;
+            background: #f8fafc;
+            font-size: 11px;
+        }
+
+        /* Print button bar */
+        .print-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(135deg, #1e3a5f, #2d5a87);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .print-bar button {
+            background: #38b2ac;
+            color: #fff;
+            border: none;
+            padding: 7px 20px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .print-bar button:hover { opacity: 0.9; }
+
+        .print-bar .back-btn {
+            background: rgba(255,255,255,0.1);
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .print-spacer { height: 50px; }
+
+        /* Header */
+        header {
+            margin-bottom: 10px;
+            border-bottom: 2px solid #2b6cb0;
+            padding-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1a365d;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #2b6cb0;
+            font-weight: 600;
+        }
+
+        .contact-row {
+            margin-top: 4px;
+            font-size: 11px;
+            color: #4a5568;
+        }
+
+        .contact-row a { color: #2b6cb0; text-decoration: none; }
+        .contact-row a:hover { text-decoration: underline; }
+        .contact-sep { margin: 0 6px; color: #cbd5e0; }
+
+        /* Sections */
+        section { margin-bottom: 8px; }
+
+        h2 {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            padding: 3px 10px;
+            border-radius: 3px;
+            margin-bottom: 6px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 11px;
+            color: #4a5568;
+            border-left: 2px solid #38b2ac;
+            padding-left: 8px;
+            line-height: 1.4;
+        }
+
+        /* Experience */
+        .job {
+            margin-bottom: 6px;
+            padding-left: 8px;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .job-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .job-date {
+            font-size: 10px;
+            color: #718096;
+        }
+
+        .job-company {
+            font-size: 10px;
+            color: #2b6cb0;
+            font-weight: 500;
+        }
+
+        .job ul {
+            margin-top: 2px;
+            padding-left: 14px;
+        }
+
+        .job li {
+            font-size: 10.5px;
+            color: #4a5568;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .job li::marker { color: #38b2ac; }
+
+        /* Earlier roles - compact inline */
+        .earlier-roles {
+            padding-left: 8px;
+            border-left: 2px solid #e2e8f0;
+            font-size: 10.5px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .earlier-roles strong {
+            color: #1a365d;
+            font-weight: 600;
+        }
+
+        .earlier-roles .role-date {
+            color: #718096;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 16px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1px 8px;
+            font-size: 10.5px;
+        }
+
+        .skill-cat { font-weight: 600; color: #1a365d; }
+        .skill-list { color: #4a5568; }
+
+        /* Projects */
+        .project-group { margin-bottom: 5px; }
+
+        .project-group-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #2b6cb0;
+            margin-bottom: 1px;
+            padding-left: 6px;
+            border-left: 2px solid #ed8936;
+        }
+
+        .project-group ul { padding-left: 14px; }
+
+        .project-group li {
+            font-size: 10px;
+            color: #4a5568;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .project-group li strong { font-weight: 600; color: #2d3748; }
+        .project-group li::marker { color: #ed8936; }
+
+        /* Education */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 11px;
+        }
+
+        .edu-degree { font-weight: 700; color: #1a365d; }
+        .edu-school { color: #2b6cb0; margin-left: 4px; }
+        .edu-location { font-size: 10px; color: #718096; }
+
+        /* Print styles */
+        @media print {
+            .print-bar, .print-spacer { display: none !important; }
+            body { padding: 0; margin: 0; max-width: none; background: #fff; }
+        }
+
+        @page { margin: 8mm 12mm; }
+    </style>
+</head>
+<body>
+    <div class="print-bar">
+        <button class="back-btn" onclick="window.close(); history.back();">Back to Terminal</button>
+        <button onclick="downloadPDF()">Save as PDF</button>
+    </div>
+    <div class="print-spacer"></div>
+
+    <header>
+        <h1>Hong Yin Yu (Jerry)</h1>
+        <div class="subtitle">DevOps Engineer</div>
+        <div class="contact-row">
+            <span>London, UK</span>
+            <span class="contact-sep">|</span>
+            <a href="mailto:tryyourbestjerry@gmail.com">tryyourbestjerry@gmail.com</a>
+            <span class="contact-sep">|</span>
+            <a href="tel:+447706154686">+44 (0) 7706154686</a>
+            <span class="contact-sep">|</span>
+            <a href="https://www.linkedin.com/in/yhyjerjerry/" target="_blank">linkedin.com/in/yhyjerjerry</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Summary</h2>
+        <p class="summary">Infrastructure engineer with 5+ years of experience at Crypto.com, specializing in cloud infrastructure, Kubernetes orchestration, and security automation across AWS and Azure environments. Passionate about building reliable, scalable infrastructure through Infrastructure as Code, GitOps workflows, and zero-trust security.</p>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Engineer, Infra DevOps</span>
+                <span class="job-date">Jan 2023 &ndash; Mar 2025 | London, UK</span>
+            </div>
+            <div class="job-company">Crypto.com</div>
+            <ul>
+                <li>Architected multi-region Teleport zero-trust platform across 3 AWS regions (US, Singapore, Tokyo) and 16 production clusters serving 2,633 RBAC roles</li>
+                <li>Built AWS account provisioning pipeline managing 100+ production and 92 staging accounts with automated CloudTrail, Config &amp; GuardDuty</li>
+                <li>Managed centralized Helm chart repository (13 charts) for security applications</li>
+                <li>Designed Teleport role management pipeline with Okta auto-provisioning, dual-approval governance, and self-service templates via Spacelift</li>
+                <li>Provisioned multi-environment EKS infrastructure (v1.33) with Karpenter + HPA autoscaling, Flux CD GitOps, and 16+ Helm releases per cluster</li>
+                <li>Built serverless metrics pipeline (Lambda + Python) processing Okta login analytics with automated visualization and S3 reporting</li>
+                <li>Implemented dynamic IP allowlisting via GitHub webhooks with automated PR creation across all regions</li>
+                <li>Managed RDS Aurora (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, and OpenSearch with IAM auth and PII-level access controls</li>
+                <li>Deployed FortiGate &amp; Palo Alto firewalls with GWLB on AWS</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Engineer, Security Assurance and Resilience</span>
+                <span class="job-date">Nov 2021 &ndash; Jan 2023 | Hong Kong</span>
+            </div>
+            <div class="job-company">Crypto.com</div>
+            <ul>
+                <li>Collaborated with cross-functional teams on security protocols and supported troubleshooting and information dissemination</li>
+            </ul>
+        </div>
+
+        <div class="earlier-roles">
+            <strong>Quality Assurance Engineer</strong>, Crypto.com <span class="role-date">(Nov 2020 &ndash; Nov 2021)</span>
+            &nbsp;&bull;&nbsp;
+            <strong>Senior QA Specialist</strong>, Crypto.com <span class="role-date">(Aug &ndash; Nov 2020)</span>
+            &nbsp;&bull;&nbsp;
+            <strong>QA Specialist</strong>, Crypto.com <span class="role-date">(Feb 2018 &ndash; Aug 2020)</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-cat">Cloud</span>
+            <span class="skill-list">AWS, Azure</span>
+            <span class="skill-cat">IaC &amp; GitOps</span>
+            <span class="skill-list">Terraform, Spacelift, Flux CD, Kustomize, Ansible</span>
+            <span class="skill-cat">Containers</span>
+            <span class="skill-list">Kubernetes (EKS/AKS), Docker, Helm, Karpenter</span>
+            <span class="skill-cat">Security</span>
+            <span class="skill-list">Teleport, Okta OIDC, GuardDuty, CloudTrail, AWS Config</span>
+            <span class="skill-cat">Languages</span>
+            <span class="skill-list">Terraform HCL, Python, Bash</span>
+            <span class="skill-cat">CI/CD</span>
+            <span class="skill-list">Spacelift, GitHub Actions, Flux CD, GitOps</span>
+            <span class="skill-cat">Monitoring</span>
+            <span class="skill-list">Datadog, Prometheus, Grafana, Fluentd, CloudWatch</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Key Projects</h2>
+        <div class="two-col">
+            <div>
+                <div class="project-group">
+                    <div class="project-group-title">Teleport Zero-Trust Platform</div>
+                    <ul>
+                        <li><strong>Multi-Region Infra</strong> &mdash; 3 AWS regions, 2 envs, EKS + VPC + Flux CD</li>
+                        <li><strong>RBAC Pipeline</strong> &mdash; 2,633 roles, 16 prod clusters, Okta auto-provisioning</li>
+                        <li><strong>Metrics Pipeline</strong> &mdash; Lambda (Python), Okta analytics, S3 dashboards</li>
+                        <li><strong>IP Allowlisting</strong> &mdash; GitHub webhook-driven security group updates</li>
+                        <li><strong>Slack Bot</strong> &mdash; Automated access approval with SQS and IRSA</li>
+                    </ul>
+                </div>
+                <div class="project-group">
+                    <div class="project-group-title">AWS Account Provisioning</div>
+                    <ul>
+                        <li><strong>Account Factory</strong> &mdash; 100+ prod &amp; 92 staging accounts via Terraform</li>
+                        <li><strong>Security Compliance</strong> &mdash; CloudTrail, Config (CIS), GuardDuty, 5 regions</li>
+                        <li><strong>Import Automation</strong> &mdash; Bash/Python tooling for Terraform state imports</li>
+                        <li><strong>IAM Policies</strong> &mdash; Cross-account least-privilege assume roles</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="project-group">
+                    <div class="project-group-title">Kubernetes &amp; Helm</div>
+                    <ul>
+                        <li><strong>EKS Clusters</strong> &mdash; Multi-env, Karpenter + HPA autoscaling, IRSA, KMS</li>
+                        <li><strong>Helm Charts</strong> &mdash; 13 production charts for security apps</li>
+                        <li><strong>GitOps Pipeline</strong> &mdash; Flux CD + GitHub Actions, auto packaging</li>
+                    </ul>
+                </div>
+                <div class="project-group">
+                    <div class="project-group-title">AWS General Infrastructure</div>
+                    <ul>
+                        <li><strong>Multi-Region VPC</strong> &mdash; Transit Gateway, NAT, SG &amp; Korea regions</li>
+                        <li><strong>App Platform</strong> &mdash; 13+ apps deployed via Helm/Flux</li>
+                        <li><strong>RDS IAM Module</strong> &mdash; Automated MySQL provisioning, PII controls</li>
+                        <li><strong>Observability</strong> &mdash; Thanos, Prometheus, Grafana, Datadog, CW</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="edu-row">
+            <div><span class="edu-degree">Bachelor's Degree &mdash; Information Engineering</span><span class="edu-school">, City University of Hong Kong</span></div>
+            <span class="edu-location">Hong Kong</span>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            var bar = document.querySelector('.print-bar');
+            var spacer = document.querySelector('.print-spacer');
+            bar.style.display = 'none';
+            spacer.style.display = 'none';
+
+            var opt = {
+                margin:       [6, 10, 6, 10],
+                filename:     'Jerry_Yu_DevOps_CV.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(document.body).save().then(function() {
+                bar.style.display = '';
+                spacer.style.display = '';
+            });
+        }
+    </script>
+</body>
+</html>

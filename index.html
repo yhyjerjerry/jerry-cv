@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Yu | DevOps Engineer</title>
+    <meta name="description" content="Hong Yin Yu (Jerry) - DevOps Engineer based in London. Terminal-style interactive CV.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>></text></svg>">
+</head>
+<body>
+    <div id="terminal">
+        <div id="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">jerry@devops:~</div>
+        </div>
+        <div id="info-banner">
+            <div class="info-name">Hong Yin Yu <span class="info-nick">(Jerry)</span></div>
+            <div class="info-role">DevOps Engineer</div>
+            <div class="info-details">
+                <span>London, UK</span>
+                <span class="info-sep">|</span>
+                <a href="mailto:tryyourbestjerry@gmail.com">tryyourbestjerry@gmail.com</a>
+                <span class="info-sep">|</span>
+                <a href="tel:+447706154686">+44 (0) 7706154686</a>
+                <span class="info-sep">|</span>
+                <a href="https://www.linkedin.com/in/yhyjerjerry/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div id="cmd-buttons">
+            <button class="cmd-btn" data-cmd="whoami">whoami</button>
+            <button class="cmd-btn" data-cmd="experience">experience</button>
+            <button class="cmd-btn" data-cmd="skills">skills</button>
+            <button class="cmd-btn" data-cmd="projects">projects</button>
+            <button class="cmd-btn" data-cmd="education">education</button>
+            <button class="cmd-btn" data-cmd="clear">clear</button>
+            <button class="cmd-btn cmd-btn-download" onclick="window.open('cv.html','_blank')">download CV</button>
+        </div>
+        <div id="terminal-body">
+            <div id="output"></div>
+            <div id="input-line">
+                <span class="prompt">visitor@jerry.dev:~$&nbsp;</span>
+                <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
