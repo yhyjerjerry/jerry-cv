@@ -56,14 +56,18 @@ function cmdHelp() {
 function cmdWhoami() {
     return '\
 <div class="line bold color-green">Hong Yin Yu (Jerry)</div>\
-<div class="line color-blue">DevOps Engineer</div>\
+<div class="line color-blue">DevOps Engineer (mid-level)</div>\
 <div class="line">&nbsp;</div>\
-<div class="line">Infrastructure engineer with 5+ years of experience at Crypto.com,</div>\
-<div class="line">specializing in cloud infrastructure, Kubernetes orchestration, and</div>\
-<div class="line">security automation across AWS and Azure environments.</div>\
+<div class="line">DevOps Engineer with 3+ years of hands-on infrastructure experience</div>\
+<div class="line">at Crypto.com (5+ years total tenure, progressed from QA into</div>\
+<div class="line">Security and DevOps).</div>\
 <div class="line">&nbsp;</div>\
-<div class="line">Passionate about building reliable, scalable infrastructure through</div>\
-<div class="line">Infrastructure as Code, GitOps workflows, and zero-trust security.</div>';
+<div class="line">Comfortable operating AWS and EKS environments using Terraform and</div>\
+<div class="line">GitOps workflows. Strongest in IaC, IAM, and Kubernetes day-to-day</div>\
+<div class="line">operations.</div>\
+<div class="line">&nbsp;</div>\
+<div class="line">Looking for mid-level DevOps opportunities in London or remote UK,</div>\
+<div class="line">ideally in AWS-focused organisations.</div>';
 }
 
 function cmdExperience() {
@@ -74,17 +78,17 @@ function cmdExperience() {
 <div class="timeline-item">\
   <div class="role">Engineer, Infra DevOps</div>\
   <div class="company">Crypto.com</div>\
-  <div class="date">Jan 2023 - Mar 2025 | London, UK</div>\
+  <div class="date">Jan 2023 - Mar 2026 | London, UK (Remote)</div>\
   <div class="line">&nbsp;</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Architected multi-region Teleport zero-trust platform across 3 AWS regions (US, Singapore, Tokyo) and 16 production clusters serving 2,633 RBAC roles</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Built AWS account provisioning pipeline managing 100+ production and 92 staging accounts with automated CloudTrail, Config &amp; GuardDuty</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Managed centralized Helm chart repository (13 charts) for security applications</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Designed Teleport role management pipeline with Okta auto-provisioning, dual-approval governance, and self-service templates via Spacelift</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Provisioned multi-environment EKS infrastructure (v1.33) with Karpenter + HPA autoscaling, Flux CD GitOps, and 16+ Helm releases per cluster</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Built serverless metrics pipeline (Lambda + Python) processing Okta login analytics with automated visualization and S3 reporting</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Implemented dynamic IP allowlisting via GitHub webhooks with automated PR creation across all regions</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Managed RDS Aurora (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, and OpenSearch with IAM authentication and PII-level access controls</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Deployed FortiGate &amp; Palo Alto firewalls with GWLB on AWS</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Operated multi-region Teleport zero-trust platform across 3 AWS regions (US, Singapore, Tokyo) and 16 production EKS clusters, managing access for 2,633 RBAC roles</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Maintained AWS account provisioning pipeline covering 100+ production and 92 staging accounts, with automated CloudTrail, AWS Config &amp; GuardDuty enrolment</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Managed centralised Helm chart repository (13 charts) used by security applications across the organisation</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Contributed to Teleport role management pipeline with Okta auto-provisioning, dual-approval governance, and self-service templates via Spacelift</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Operated multi-environment EKS infrastructure (v1.33) with Karpenter and HPA autoscaling, Flux CD GitOps, and 16+ Helm releases per cluster</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Built serverless metrics pipeline (Lambda + Python) processing Okta login analytics with automated visualisation and S3 reporting</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Implemented dynamic IP allowlisting via GitHub webhooks with automated PR creation across regions</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Supported RDS Aurora (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, and OpenSearch with IAM authentication and PII-level access controls</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Assisted in deploying FortiGate &amp; Palo Alto firewalls with GWLB on AWS</div>\
 </div>\
 \
 <div class="timeline-item">\
@@ -92,38 +96,45 @@ function cmdExperience() {
   <div class="company">Crypto.com</div>\
   <div class="date">Nov 2021 - Jan 2023 | Hong Kong</div>\
   <div class="line">&nbsp;</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Collaborated with cross-functional teams on security protocols</div>\
-  <div class="detail"><span class="color-cyan">\u2022</span> Supported troubleshooting and information dissemination</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Collaborated with cross-functional teams on security protocols implementation</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Supported troubleshooting and information dissemination across engineering and operations teams</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Built foundation in cloud security concepts that enabled transition into infrastructure engineering</div>\
 </div>\
 \
 <div class="timeline-item">\
   <div class="role">Quality Assurance Engineer</div>\
   <div class="company">Crypto.com</div>\
   <div class="date">Nov 2020 - Nov 2021 | Hong Kong</div>\
+  <div class="line">&nbsp;</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> QA for production systems and release validation</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Internal progression led to transition into Security and DevOps</div>\
 </div>\
 \
 <div class="timeline-item">\
   <div class="role">Senior QA Specialist</div>\
-  <div class="company">Crypto.com</div>\
+  <div class="company">EY Mtel Limited</div>\
   <div class="date">Aug 2020 - Nov 2020 | Hong Kong</div>\
 </div>\
 \
 <div class="timeline-item">\
   <div class="role">QA Specialist</div>\
-  <div class="company">Crypto.com</div>\
+  <div class="company">EY Mtel Limited</div>\
   <div class="date">Feb 2018 - Aug 2020 | Hong Kong</div>\
+  <div class="line">&nbsp;</div>\
+  <div class="detail"><span class="color-cyan">\u2022</span> Software quality assurance; built foundation in production systems and release management</div>\
 </div>';
 }
 
 function cmdSkills() {
     var categories = {
-        'Cloud': ['AWS', 'Azure'],
+        'Cloud': ['AWS (strong)', 'Azure (working knowledge)'],
         'IaC & GitOps': ['Terraform', 'Spacelift', 'Flux CD', 'Kustomize', 'Ansible'],
         'Containers': ['Kubernetes (EKS/AKS)', 'Docker', 'Helm', 'Karpenter'],
-        'Security': ['Teleport', 'Okta OIDC', 'GuardDuty', 'CloudTrail', 'AWS Config'],
+        'Security': ['Teleport', 'Okta OIDC', 'IAM', 'GuardDuty', 'CloudTrail', 'AWS Config'],
         'Languages': ['Terraform HCL', 'Python', 'Bash'],
-        'CI/CD': ['Spacelift', 'GitHub Actions', 'Flux CD', 'GitOps'],
+        'CI/CD': ['Spacelift', 'GitHub Actions', 'Flux CD', 'GitOps workflows'],
         'Monitoring': ['Datadog', 'Prometheus', 'Grafana', 'Fluentd', 'CloudWatch'],
+        'Databases (operational)': ['RDS (MySQL/PostgreSQL)', 'ElastiCache Redis', 'CockroachDB', 'OpenSearch'],
     };
 
     var html = '<div class="section-header">Technical Skills</div>\n<div class="line">&nbsp;</div>';
@@ -140,29 +151,29 @@ function cmdSkills() {
 
 function cmdProjects() {
     var projects = {
-        'Teleport Zero-Trust Platform': [
+        'Teleport Zero-Trust Platform (Crypto.com, 2023-2026)': [
             ['Multi-Region Infrastructure', '3 AWS regions (US/SG/TK), 2 envs, EKS + VPC + Flux CD GitOps'],
             ['RBAC Pipeline', '2,633 roles across 16 prod clusters, Okta auto-provisioning, dual-approval governance'],
             ['Metrics Pipeline', 'Lambda (Python) processing Okta login data into analytics dashboards on S3'],
-            ['IP Allowlisting', 'GitHub webhook-driven dynamic security group updates across all regions'],
+            ['IP Allowlisting', 'GitHub webhook-driven dynamic security group updates across regions'],
             ['Slack Bot Integration', 'Automated access request approval with SQS and IRSA'],
         ],
-        'AWS Account Provisioning': [
+        'AWS Account Provisioning (Crypto.com, 2023-2026)': [
             ['Account Factory', 'Terraform pipeline provisioning 100+ prod & 92 staging AWS accounts'],
-            ['Security Compliance', 'Automated CloudTrail, AWS Config (CIS Benchmark), GuardDuty across 5 regions'],
+            ['Security Compliance', 'CloudTrail, AWS Config (CIS Benchmark), GuardDuty across 5 regions'],
             ['Import Automation', 'Bash/Python tooling to discover and import existing resources into Terraform state'],
             ['IAM Policies', 'Cross-account assume roles with least-privilege for provisioning operations'],
         ],
-        'Kubernetes & Helm': [
+        'Kubernetes & Helm Operations (Crypto.com, 2023-2026)': [
             ['EKS Clusters', 'Multi-env (prod/stag/dev) with Karpenter + HPA autoscaling, IRSA, KMS encryption'],
-            ['Helm Chart Repository', '13 production charts'],
+            ['Helm Chart Repository', '13 production charts for security applications'],
             ['GitOps Pipeline', 'Flux CD with GitHub Actions for automated chart packaging & versioning'],
         ],
-        'AWS General Infrastructure': [
-            ['Multi-Region VPC', 'Transit Gateway networking, NAT, security groups across SG & Korea regions'],
+        'AWS General Infrastructure (Crypto.com, 2023-2026)': [
+            ['Multi-Region VPC', 'Transit Gateway networking, NAT gateways, security groups across regions'],
             ['Application Platform', '13+ apps deployed via Helm/Flux'],
-            ['RDS IAM Module', 'Custom Terraform module for automated MySQL user provisioning with PII controls'],
-            ['Observability', 'Thanos, Prometheus, Grafana, Fluentd, Datadog, CloudWatch integration'],
+            ['RDS IAM Module', 'Terraform module for automated MySQL user provisioning with PII access controls'],
+            ['Observability', 'Thanos, Prometheus, Grafana, Datadog, CloudWatch'],
         ],
     };
 

@@ -19,6 +19,8 @@
             padding: 32px 32px 20px;
             background: #f8fafc;
             font-size: 11px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         /* Print button bar */
@@ -58,9 +60,9 @@
 
         /* Header */
         header {
-            margin-bottom: 10px;
+            margin-bottom: 7px;
             border-bottom: 2px solid #2b6cb0;
-            padding-bottom: 8px;
+            padding-bottom: 6px;
         }
 
         h1 {
@@ -88,7 +90,7 @@
         .contact-sep { margin: 0 6px; color: #cbd5e0; }
 
         /* Sections */
-        section { margin-bottom: 8px; }
+        section { margin-bottom: 6px; }
 
         h2 {
             font-size: 10px;
@@ -113,7 +115,7 @@
 
         /* Experience */
         .job {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             padding-left: 8px;
             border-left: 2px solid #e2e8f0;
         }
@@ -161,7 +163,7 @@
             border-left: 2px solid #e2e8f0;
             font-size: 10.5px;
             color: #4a5568;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .earlier-roles strong {
@@ -203,6 +205,12 @@
             border-left: 2px solid #ed8936;
         }
 
+        .project-meta {
+            font-weight: 400;
+            font-size: 9.5px;
+            color: #718096;
+        }
+
         .project-group ul { padding-left: 14px; }
 
         .project-group li {
@@ -231,15 +239,17 @@
         @media print {
             .print-bar, .print-spacer { display: none !important; }
             body { padding: 0; margin: 0; max-width: none; background: #fff; }
+            a { color: #2b6cb0; text-decoration: none; }
+            section, .job, .project-group { page-break-inside: avoid; }
         }
 
-        @page { margin: 8mm 12mm; }
+        @page { margin: 7mm 11mm; }
     </style>
 </head>
 <body>
     <div class="print-bar">
         <button class="back-btn" onclick="window.close(); history.back();">Back to Terminal</button>
-        <button onclick="downloadPDF()">Save as PDF</button>
+        <button onclick="savePDF()">Save as PDF</button>
     </div>
     <div class="print-spacer"></div>
 
@@ -252,12 +262,16 @@
             <a href="mailto:tryyourbestjerry@gmail.com">tryyourbestjerry@gmail.com</a>
             <span class="contact-sep">|</span>
             <a href="https://www.linkedin.com/in/yhyjerjerry/" target="_blank">linkedin.com/in/yhyjerjerry</a>
+            <span class="contact-sep">|</span>
+            <a href="https://github.com/yhyjerjerry" target="_blank">github.com/yhyjerjerry</a>
+            <span class="contact-sep">|</span>
+            <a href="https://yhyjerjerry.github.io/jerry-cv" target="_blank">yhyjerjerry.github.io/jerry-cv</a>
         </div>
     </header>
 
     <section>
         <h2>Summary</h2>
-        <p class="summary">Infrastructure engineer with 5+ years of experience at Crypto.com, specializing in cloud infrastructure, Kubernetes orchestration, and security automation across AWS and Azure environments. Passionate about building reliable, scalable infrastructure through Infrastructure as Code, GitOps workflows, and zero-trust security.</p>
+        <p class="summary">DevOps Engineer with 3+ years of hands-on infrastructure experience at Crypto.com (5+ years total tenure, progressed from QA into Security and DevOps). Comfortable operating AWS and EKS environments using Terraform and GitOps workflows. Strongest in IaC, IAM, and Kubernetes day-to-day operations. Looking for mid-level DevOps opportunities in London or remote UK, ideally in AWS-focused organisations.</p>
     </section>
 
     <section>
@@ -265,19 +279,19 @@
         <div class="job">
             <div class="job-header">
                 <span class="job-title">Engineer, Infra DevOps</span>
-                <span class="job-date">Jan 2023 &ndash; Mar 2025 | London, UK</span>
+                <span class="job-date">Jan 2023 &ndash; Mar 2026 | London, UK (Remote)</span>
             </div>
             <div class="job-company">Crypto.com</div>
             <ul>
-                <li>Architected multi-region Teleport zero-trust platform across 3 AWS regions (US, Singapore, Tokyo) and 16 production clusters serving 2,633 RBAC roles</li>
-                <li>Built AWS account provisioning pipeline managing 100+ production and 92 staging accounts with automated CloudTrail, Config &amp; GuardDuty</li>
-                <li>Managed centralized Helm chart repository (13 charts) for security applications</li>
-                <li>Designed Teleport role management pipeline with Okta auto-provisioning, dual-approval governance, and self-service templates via Spacelift</li>
-                <li>Provisioned multi-environment EKS infrastructure (v1.33) with Karpenter + HPA autoscaling, Flux CD GitOps, and 16+ Helm releases per cluster</li>
-                <li>Built serverless metrics pipeline (Lambda + Python) processing Okta login analytics with automated visualization and S3 reporting</li>
-                <li>Implemented dynamic IP allowlisting via GitHub webhooks with automated PR creation across all regions</li>
-                <li>Managed RDS Aurora (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, and OpenSearch with IAM auth and PII-level access controls</li>
-                <li>Deployed FortiGate &amp; Palo Alto firewalls with GWLB on AWS</li>
+                <li>Operated multi-region Teleport zero-trust platform across 3 AWS regions (US, Singapore, Tokyo) and 16 production EKS clusters, managing access for 2,633 RBAC roles</li>
+                <li>Maintained AWS account provisioning pipeline covering 100+ production and 92 staging accounts, with automated CloudTrail, AWS Config, and GuardDuty enrolment</li>
+                <li>Managed centralised Helm chart repository (13 charts) used by security applications across the organisation</li>
+                <li>Contributed to Teleport role management pipeline with Okta auto-provisioning, dual-approval governance, and self-service templates via Spacelift</li>
+                <li>Operated multi-environment EKS infrastructure (v1.33) with Karpenter and HPA autoscaling, Flux CD GitOps, and 16+ Helm releases per cluster</li>
+                <li>Built serverless metrics pipeline (Lambda + Python) processing Okta login analytics with automated visualisation and S3 reporting</li>
+                <li>Implemented dynamic IP allowlisting via GitHub webhooks with automated PR creation across regions</li>
+                <li>Supported RDS Aurora (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, and OpenSearch with IAM authentication and PII-level access controls</li>
+                <li>Assisted in deploying FortiGate and Palo Alto firewalls with GWLB on AWS</li>
             </ul>
         </div>
 
@@ -288,16 +302,17 @@
             </div>
             <div class="job-company">Crypto.com</div>
             <ul>
-                <li>Collaborated with cross-functional teams on security protocols and supported troubleshooting and information dissemination</li>
+                <li>Collaborated with cross-functional teams on security protocols implementation; supported troubleshooting and information dissemination across engineering and operations teams</li>
+                <li>Built foundation in cloud security concepts that enabled the transition into infrastructure engineering</li>
             </ul>
         </div>
 
         <div class="earlier-roles">
-            <strong>Quality Assurance Engineer</strong>, Crypto.com <span class="role-date">(Nov 2020 &ndash; Nov 2021)</span>
+            <strong>Quality Assurance Engineer</strong>, Crypto.com <span class="role-date">(Nov 2020 &ndash; Nov 2021, Hong Kong)</span> &mdash; QA for production systems and release validation; internal progression into Security and DevOps
+            <br>
+            <strong>Senior QA Specialist</strong>, EY Mtel Limited <span class="role-date">(Aug 2020 &ndash; Nov 2020, Hong Kong)</span>
             &nbsp;&bull;&nbsp;
-            <strong>Senior QA Specialist</strong>, Crypto.com <span class="role-date">(Aug &ndash; Nov 2020)</span>
-            &nbsp;&bull;&nbsp;
-            <strong>QA Specialist</strong>, Crypto.com <span class="role-date">(Feb 2018 &ndash; Aug 2020)</span>
+            <strong>QA Specialist</strong>, EY Mtel Limited <span class="role-date">(Feb 2018 &ndash; Aug 2020, Hong Kong)</span> &mdash; software QA; foundation in production systems and release management
         </div>
     </section>
 
@@ -305,19 +320,21 @@
         <h2>Technical Skills</h2>
         <div class="skills-grid">
             <span class="skill-cat">Cloud</span>
-            <span class="skill-list">AWS, Azure</span>
+            <span class="skill-list">AWS (strong), Azure (working knowledge)</span>
             <span class="skill-cat">IaC &amp; GitOps</span>
             <span class="skill-list">Terraform, Spacelift, Flux CD, Kustomize, Ansible</span>
             <span class="skill-cat">Containers</span>
             <span class="skill-list">Kubernetes (EKS/AKS), Docker, Helm, Karpenter</span>
             <span class="skill-cat">Security</span>
-            <span class="skill-list">Teleport, Okta OIDC, GuardDuty, CloudTrail, AWS Config</span>
+            <span class="skill-list">Teleport, Okta OIDC, IAM, GuardDuty, CloudTrail, AWS Config</span>
             <span class="skill-cat">Languages</span>
             <span class="skill-list">Terraform HCL, Python, Bash</span>
             <span class="skill-cat">CI/CD</span>
-            <span class="skill-list">Spacelift, GitHub Actions, Flux CD, GitOps</span>
+            <span class="skill-list">Spacelift, GitHub Actions, Flux CD, GitOps workflows</span>
             <span class="skill-cat">Monitoring</span>
             <span class="skill-list">Datadog, Prometheus, Grafana, Fluentd, CloudWatch</span>
+            <span class="skill-cat">Databases (operational)</span>
+            <span class="skill-list">RDS (MySQL/PostgreSQL), ElastiCache Redis, CockroachDB, OpenSearch</span>
         </div>
     </section>
 
@@ -326,7 +343,7 @@
         <div class="two-col">
             <div>
                 <div class="project-group">
-                    <div class="project-group-title">Teleport Zero-Trust Platform</div>
+                    <div class="project-group-title">Teleport Zero-Trust Platform <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
                         <li><strong>Multi-Region Infra</strong> &mdash; 3 AWS regions, 2 envs, EKS + VPC + Flux CD</li>
                         <li><strong>RBAC Pipeline</strong> &mdash; 2,633 roles, 16 prod clusters, Okta auto-provisioning</li>
@@ -336,10 +353,10 @@
                     </ul>
                 </div>
                 <div class="project-group">
-                    <div class="project-group-title">AWS Account Provisioning</div>
+                    <div class="project-group-title">AWS Account Provisioning <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
                         <li><strong>Account Factory</strong> &mdash; 100+ prod &amp; 92 staging accounts via Terraform</li>
-                        <li><strong>Security Compliance</strong> &mdash; CloudTrail, Config (CIS), GuardDuty, 5 regions</li>
+                        <li><strong>Security Compliance</strong> &mdash; CloudTrail, AWS Config (CIS), GuardDuty, 5 regions</li>
                         <li><strong>Import Automation</strong> &mdash; Bash/Python tooling for Terraform state imports</li>
                         <li><strong>IAM Policies</strong> &mdash; Cross-account least-privilege assume roles</li>
                     </ul>
@@ -347,7 +364,7 @@
             </div>
             <div>
                 <div class="project-group">
-                    <div class="project-group-title">Kubernetes &amp; Helm</div>
+                    <div class="project-group-title">Kubernetes &amp; Helm Operations <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
                         <li><strong>EKS Clusters</strong> &mdash; Multi-env, Karpenter + HPA autoscaling, IRSA, KMS</li>
                         <li><strong>Helm Charts</strong> &mdash; 13 production charts for security apps</li>
@@ -355,12 +372,12 @@
                     </ul>
                 </div>
                 <div class="project-group">
-                    <div class="project-group-title">AWS General Infrastructure</div>
+                    <div class="project-group-title">AWS General Infrastructure <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
-                        <li><strong>Multi-Region VPC</strong> &mdash; Transit Gateway, NAT, SG &amp; Korea regions</li>
+                        <li><strong>Multi-Region VPC</strong> &mdash; Transit Gateway, NAT gateways, security groups across regions</li>
                         <li><strong>App Platform</strong> &mdash; 13+ apps deployed via Helm/Flux</li>
                         <li><strong>RDS IAM Module</strong> &mdash; Automated MySQL provisioning, PII controls</li>
-                        <li><strong>Observability</strong> &mdash; Thanos, Prometheus, Grafana, Datadog, CW</li>
+                        <li><strong>Observability</strong> &mdash; Thanos, Prometheus, Grafana, Datadog, CloudWatch</li>
                     </ul>
                 </div>
             </div>
@@ -375,27 +392,11 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
     <script>
-        function downloadPDF() {
-            var bar = document.querySelector('.print-bar');
-            var spacer = document.querySelector('.print-spacer');
-            bar.style.display = 'none';
-            spacer.style.display = 'none';
-
-            var opt = {
-                margin:       [6, 10, 6, 10],
-                filename:     'Jerry_Yu_DevOps_CV.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-
-            html2pdf().set(opt).from(document.body).save().then(function() {
-                bar.style.display = '';
-                spacer.style.display = '';
-            });
+        // Use the browser's native print-to-PDF so the exported file keeps
+        // real, selectable text (ATS-readable) rather than a rasterised image.
+        function savePDF() {
+            window.print();
         }
     </script>
 </body>
