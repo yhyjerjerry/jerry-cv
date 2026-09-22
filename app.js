@@ -131,7 +131,7 @@ function cmdSkills() {
         'IaC & GitOps': ['Terraform', 'Spacelift', 'Flux CD', 'Kustomize', 'Ansible'],
         'Containers': ['Kubernetes (EKS/AKS)', 'Docker', 'Helm', 'Karpenter'],
         'Security': ['Teleport', 'Okta OIDC', 'IAM', 'GuardDuty', 'CloudTrail', 'AWS Config'],
-        'Languages': ['Terraform HCL', 'Python', 'Bash'],
+        'Languages': ['Terraform HCL', 'Bash', 'Python'],
         'CI/CD': ['Spacelift', 'GitHub Actions', 'Flux CD', 'GitOps workflows'],
         'Monitoring': ['Datadog', 'Prometheus', 'Grafana', 'Fluentd', 'CloudWatch'],
         'Databases (operational)': ['RDS (MySQL/PostgreSQL)', 'ElastiCache Redis', 'CockroachDB', 'OpenSearch'],
