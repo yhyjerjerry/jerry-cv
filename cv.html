@@ -279,7 +279,7 @@
             h2 { page-break-after: avoid; break-after: avoid; }
         }
 
-        @page { margin: 7mm 11mm; }
+        @page { size: A4; margin: 7mm 11mm; }
     </style>
 </head>
 <body>
@@ -386,39 +386,25 @@
         <div class="two-col">
             <div>
                 <div class="project-group">
-                    <div class="project-group-title">Teleport Zero-Trust Platform <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
+                    <div class="project-group-title">AWS Account Provisioning <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
-                        <li><strong>Multi-Region Infra</strong> &mdash; 3 AWS regions, 2 envs, EKS + VPC + Flux CD</li>
-                        <li><strong>RBAC Pipeline</strong> &mdash; 2,633 roles, 16 prod clusters, Okta auto-provisioning</li>
-                        <li><strong>Metrics Pipeline</strong> &mdash; Lambda (Python), Okta analytics, S3 dashboards</li>
-                        <li><strong>IP Allowlisting</strong> &mdash; GitHub webhook-driven security group updates</li>
-                        <li><strong>Slack Bot</strong> &mdash; Automated access approval with SQS and IRSA</li>
+                        <li><strong>Security Compliance</strong> &mdash; AWS Config (CIS Benchmarks) across 5 regions</li>
+                        <li><strong>Import Automation</strong> &mdash; Bash/Python tooling for Terraform state imports</li>
+                        <li><strong>IAM Policies</strong> &mdash; Cross-account least-privilege assume roles</li>
                     </ul>
                 </div>
                 <div class="project-group">
-                    <div class="project-group-title">AWS Account Provisioning <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
+                    <div class="project-group-title">Teleport Zero-Trust Platform <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
-                        <li><strong>Account Factory</strong> &mdash; 100+ prod &amp; 92 staging accounts via Terraform</li>
-                        <li><strong>Security Compliance</strong> &mdash; CloudTrail, AWS Config (CIS Benchmarks), GuardDuty, 5 regions</li>
-                        <li><strong>Import Automation</strong> &mdash; Bash/Python tooling for Terraform state imports</li>
-                        <li><strong>IAM Policies</strong> &mdash; Cross-account least-privilege assume roles</li>
+                        <li><strong>Slack Bot</strong> &mdash; Automated access approval with SQS and IRSA</li>
                     </ul>
                 </div>
             </div>
             <div>
                 <div class="project-group">
-                    <div class="project-group-title">Kubernetes &amp; Helm Operations <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
-                    <ul>
-                        <li><strong>EKS Clusters</strong> &mdash; Multi-env, Karpenter + HPA autoscaling, IRSA, KMS</li>
-                        <li><strong>Helm Charts</strong> &mdash; 13 production charts for security apps</li>
-                        <li><strong>GitOps Pipeline</strong> &mdash; Flux CD + GitHub Actions, auto packaging</li>
-                    </ul>
-                </div>
-                <div class="project-group">
                     <div class="project-group-title">AWS General Infrastructure <span class="project-meta">&middot; Crypto.com, 2023&ndash;2026</span></div>
                     <ul>
                         <li><strong>Multi-Region VPC</strong> &mdash; Transit Gateway, NAT gateways, security groups across regions</li>
-                        <li><strong>App Platform</strong> &mdash; 13+ apps deployed via Helm/Flux</li>
                         <li><strong>RDS IAM Module</strong> &mdash; Automated MySQL provisioning, PII controls</li>
                     </ul>
                 </div>
